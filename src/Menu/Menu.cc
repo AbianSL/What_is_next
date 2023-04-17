@@ -11,11 +11,7 @@
  * 
  */
 
-#include <cstdint>                        // uint8_t
-#include <iostream>                       // std::cout, std::endl
-
 #include "Menu.h"
-#include "../Calculator/Calculator.h"     // Calculator
 
 /**
  * @brief Construct a new Menu:: Menu object
@@ -31,7 +27,7 @@ Menu::Menu() {
         PrintMainMenu();
         break;
       case 2:
-        PrintOptionInsert();
+        OptionInsert();
         break;
       case 3:
         PrintOptionShow();
@@ -68,4 +64,17 @@ void Menu::PrintMainMenu() {
  * @brief Print the option to insert a new homework
  * 
  */
+void Menu::OptionInsert() {
+  std::cout << "Insert a new homework" << std::endl;
+  std::cout << "Subject name: "; 
+  std::string subject_name;
+  std::cin >> subject_name;
+  std::cout << "date to do: ";
+  std::string date_to_do;
+  std::cin >> date_to_do;
+  std::cout << "Difficulty [Easy, Medium, Hard, I dont know]: ";
+  std::string difficulty;
+  std::cin >> difficulty;
 
+  calculator_.AddSubjectPractise(Subject(subject_name, date_to_do, difficulty));
+}
