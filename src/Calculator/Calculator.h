@@ -2,7 +2,8 @@
  * @file Calculator.h
  * @author AbianSL
  * @brief That file contains the declaration of the
- *        class Calculator, which calculate the sum
+ *        class Calculator, which calculate have all
+ *        tha computation part from the program.
  * @version 0.1
  * @date 2023-04-17
  * 
@@ -34,6 +35,7 @@ class Calculator {
  private:
   long Calculate(const unsigned number_of_subjects) const;
   void CalculateValueOfSubjects();
+  void CalculateValueOfSubjects(const unsigned& index);
 
   std::vector<Subject*> subjects_practise_;
   std::vector<long> value_of_subjects_;
