@@ -19,15 +19,24 @@
 
 class Calculator {
  public:
-  Calculator(std::vector<Subject> subjects_practise);
+  Calculator(const std::vector<Subject>& subjects_practise);
+  Calculator(const Calculator& other);
 
-  std::vector<Subject> GetSubjectsPractise() const;
-  void SetSubjectsPractise(std::vector<Subject> subjects_practise);
-  void AddSubjectPractise(Subject subject_practise);
-  void RemoveSubjectPractise(Subject subject_practise);
+  std::vector<Subject*> GetSubjectsPractise() const;
+  void SetSubjectsPractise(const std::vector<Subject*>& subjects_practise);
   
+  void AddSubjectPractise(const Subject& subject_practise);
+  void RemoveSubjectPractise(const Subject& subject_practise);
+  void RemoveSubjectPractise(const unsigned& index);
+
+  Calculator& operator=(const Calculator& other);
+
  private:
-  std::vector<Subject> subjects_practise_;
+  long Calculate(const unsigned number_of_subjects) const;
+  void CalculateValueOfSubjects();
+
+  std::vector<Subject*> subjects_practise_;
+  std::vector<long> value_of_subjects_;
 };
 
 
