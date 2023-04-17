@@ -16,6 +16,12 @@
 /**
   * @brief Construct a new Calculator:: Calculator object
   * 
+  */
+Calculator::Calculator() {}
+
+/**
+  * @brief Construct a new Calculator:: Calculator object
+  * 
   * @param subjects_practise 
   */
 Calculator::Calculator(const std::vector<Subject>& subjects_practise) {

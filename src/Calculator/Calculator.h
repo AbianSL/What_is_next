@@ -20,6 +20,7 @@
 
 class Calculator {
  public:
+  Calculator();
   Calculator(const std::vector<Subject>& subjects_practise);
   Calculator(const Calculator& other);
 
