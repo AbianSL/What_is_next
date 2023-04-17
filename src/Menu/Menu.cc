@@ -17,9 +17,16 @@
  * @brief Construct a new Menu:: Menu object
  * 
  */
-Menu::Menu() {
+Menu::Menu() : calculator_(), options_() {
   PrintHeader();
 
+  if (IsNotVoid()) {
+    std::tie(calculator_, options_) = ReadConfig();
+  } else {
+    if (WriteConfig()) {
+      throw std::runtime_error("Error writing the config file");
+    }
+  }
   uint8_t option_ = 1;
   while (option_ != 0) {
     switch (option_) {

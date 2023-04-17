@@ -17,9 +17,12 @@
 #include <iostream>                      // std::cout, std::endl
 #include <cstdint>                       // uint8_t
 #include <fstream>                       // std::ifstream, std::ofstream
+#include <string>                        // std::string
+#include <vector>                        // std::vector
+#include <tuple>                         // std::tuple
 
 #include "../Calculator/Calculator.h"    // Calculator
-#include "../Subject/Subject.h"          // Subject
+#include "../Calculator/Subject/Subject.h"          // Subject
 
 struct Options {
   std::string language_;
@@ -34,7 +37,8 @@ class Menu {
   void OptionInsert();
   void PrintOptionShow();
   void ShowOptions();
-  int ReadConfig();
+  bool IsNotVoid();
+  std::tuple<Calculator, std::vector<Options>> ReadConfig();
   int WriteConfig();
 
   Calculator calculator_;
