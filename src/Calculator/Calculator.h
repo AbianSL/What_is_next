@@ -33,10 +33,11 @@ class Calculator {
   Calculator& operator=(const Calculator& other);
 
  private:
-  long Calculate(const unsigned number_of_subjects) const;
   void CalculateValueOfSubjects();
   void CalculateValueOfSubjects(const unsigned& index);
 
+  double difficulty_factor = 1;
+  double date_factor = 1;
   std::vector<Subject*> subjects_practise_;
   std::vector<long> value_of_subjects_;
 };

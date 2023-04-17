@@ -64,3 +64,63 @@ void Calculator::AddSubjectPractise(const Subject& subject_practise) {
   CalculateValueOfSubjects(subjects_practise_.size() - 1);
 }
 
+/**
+  * @brief Remove a Subject Practise object
+  * 
+  * @param subject_practise 
+  */
+void Calculator::RemoveSubjectPractise(const Subject& subject_practise) {
+  for (unsigned i = 0; i < subjects_practise_.size(); i++) {
+    if (subjects_practise_[i]->name_ == subject_practise.name_) {
+      RemoveSubjectPractise(i);
+      break;
+    }
+  }
+  CalculateValueOfSubjects();
+}
+
+/**
+  * @brief Remove a Subject Practise object
+  * 
+  * @param index 
+  */
+void Calculator::RemoveSubjectPractise(const unsigned& index) {
+  subjects_practise_.erase(subjects_practise_.begin() + index);
+  value_of_subjects_.erase(value_of_subjects_.begin() + index);
+}
+
+/**
+  * @brief Operator= of the class Calculator
+  * 
+  * @param other 
+  * @return Calculator& 
+  */
+Calculator& Calculator::operator=(const Calculator& other) {
+  subjects_practise_ = other.subjects_practise_;
+  value_of_subjects_ = other.value_of_subjects_;
+  return *this;
+}
+
+/**
+  * @brief Calculate the value of all subjects
+  * 
+  */
+void Calculator::CalculateValueOfSubjects() {
+  for (unsigned i = 0; i < subjects_practise_.size(); i++) {
+    CalculateValueOfSubjects(i);
+  }
+}
+
+/**
+  * @brief Calculate the value of a subject
+  * 
+  * @param index 
+  */
+void Calculator::CalculateValueOfSubjects(const unsigned& index) {
+  auto actual_date = std::chrono::system_clock::now();
+  if (actual_date > subjects_practise_[index]->date_) {
+    subjects_practise_[index] = 0;
+  }
+  value_of_subjects_[index] = subjects_practise_[index]->difficulty_ * difficulty_factor + 
+                              ((subjects_practise_[index]->date_ - actual_date).count() * date_factor);
+}

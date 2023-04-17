@@ -27,7 +27,7 @@ struct Subject {
   std::string name_;
   std::string description_;
   std::chrono::time_point<std::chrono::system_clock> date_;
-  Difficulty difficulty_;ç
+  Difficulty difficulty_;
   long id_;
 };
 

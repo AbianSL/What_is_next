@@ -9,10 +9,14 @@
  * 
  */
 
+#include <iostream>
+
 #include "tools.h"
+#include "Calculator/Calculator.h"
 
 int main(int argc, char const *argv[]) {
   Usage(argc, argv); 
+  std::cout << sizeof(Calculator);
   return 0;
 }
 
