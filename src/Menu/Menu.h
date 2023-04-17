@@ -16,6 +16,7 @@
 
 #include <iostream>                      // std::cout, std::endl
 #include <cstdint>                       // uint8_t
+#include <fstream>                       // std::ifstream, std::ofstream
 
 #include "../Calculator/Calculator.h"    // Calculator
 #include "../Subject/Subject.h"          // Subject
@@ -33,6 +34,8 @@ class Menu {
   void OptionInsert();
   void PrintOptionShow();
   void ShowOptions();
+  int ReadConfig();
+  int WriteConfig();
 
   Calculator calculator_;
   std::vector<Options> options_;
