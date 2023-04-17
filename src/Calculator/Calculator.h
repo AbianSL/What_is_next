@@ -13,7 +13,9 @@
 #ifndef CALCULATOR_H
 #define CALCULATOR_H
 
-#include <vector>
+#include <vector>                 // std::vector
+
+#include "Subject/Subject.h"      // Subject
 
 class Calculator {
  public:
