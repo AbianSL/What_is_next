@@ -42,6 +42,7 @@ Menu::Menu() : calculator_() {
       default:
         break;
     }
+    std::cin >> option_;
   }
 }
 
