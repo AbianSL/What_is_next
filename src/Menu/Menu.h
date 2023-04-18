@@ -33,9 +33,11 @@ class Menu {
  public:
   Menu();  
  private:
-  void PrintHeader();
-  void PrintMainMenu();
+  void PrintHeader() const;
+  void PrintMainMenu() const;
+
   void OptionInsert();
+  void OptionShow() const;
   // Select option comming soon
   // void PrintOptionShow();
   // void ShowOptions();
@@ -44,8 +46,8 @@ class Menu {
   bool WriteMemory();
   // int WriteConfig();
 
-  std::chrono::time_point<std::chrono::system_clock> CalculateDate(std::string date);
-  Difficulty CalculateDifficulty(std::string difficulty);
+  std::chrono::time_point<std::chrono::system_clock> CalculateDate(std::string date) const;
+  Difficulty CalculateDifficulty(std::string difficulty) const;
     
   Calculator calculator_;
   // std::vector<Options> options_;

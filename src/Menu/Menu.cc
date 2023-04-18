@@ -62,7 +62,7 @@ Menu::Menu() : calculator_() {
  * @brief Print the header of the program
  * 
  */
-void Menu::PrintHeader() {
+void Menu::PrintHeader() const {
   std::cout << "=================================================================" << std::endl;
   std::cout << "Welcome to the What is next, the program to journal your homework" << std::endl;
   std::cout << "=================================================================" << std::endl;
@@ -72,7 +72,7 @@ void Menu::PrintHeader() {
  * @brief Print the main menu of the program
  * 
  */
-void Menu::PrintMainMenu() {
+void Menu::PrintMainMenu() const {
   std::cout << "What do you want to do?" << std::endl;
   std::cout << "1. Insert a new homework" << std::endl;
   std::cout << "2. Show the homework" << std::endl;
@@ -100,6 +100,14 @@ void Menu::OptionInsert() {
   auto difficulty_selected = CalculateDifficulty(difficulty); 
 
   calculator_.AddSubjectPractise(Subject(subject_name, time_point, difficulty_selected));
+}
+
+void Menu::OptionShow() const {
+  unsigned i = 0;
+  for (auto subject : calculator_.GetSubjectsPractise()) {
+    std::cout << i << " - " << subject->name_ << std::endl;
+    i++;
+  }
 }
 
 /**
@@ -130,7 +138,8 @@ Calculator Menu::ReadMemory() const {
     std::getline(input, name, delimiter);
     std::getline(input, date, delimiter);
     std::getline(input, difficulty, delimiter);
-    auto time_point = std::chrono::system_clock::time_point(std::chrono::milliseconds(std::stol(date)));
+    std::chrono::system_clock::duration duration (std::stoll(date));
+    auto time_point = std::chrono::system_clock::time_point(std::chrono::seconds(0)) + duration;
     auto difficulty_selected = Difficulty(std::stoi(difficulty));
     subjects.push_back(Subject(name, time_point, difficulty_selected));    
   }
@@ -160,7 +169,7 @@ bool Menu::WriteMemory() {
  * @param date_to_do 
  * @return std::chrono::system_clock::time_point 
  */
-std::chrono::time_point<std::chrono::system_clock> Menu::CalculateDate(std::string date) { 
+std::chrono::time_point<std::chrono::system_clock> Menu::CalculateDate(std::string date) const { 
   std::tm tm = {};
   std::stringstream input(date);
   int year, month, day;
@@ -180,16 +189,21 @@ std::chrono::time_point<std::chrono::system_clock> Menu::CalculateDate(std::stri
  * @param difficulty 
  * @return Difficulty 
  */
-Difficulty Menu::CalculateDifficulty(std::string difficulty) {
-  if (difficulty == "Easy") {
-    return Difficulty::EASY;
-  } else if (difficulty == "Medium") {
-    return Difficulty::MEDIUM;
-  } else if (difficulty == "Hard") {
-    return Difficulty::HARD;
-  } else if (difficulty == "I dont know") {
-    return Difficulty::I_DONT_KNOW;
-  } else {
-    return Difficulty::I_DONT_KNOW;
-  } 
+Difficulty Menu::CalculateDifficulty(std::string difficulty) const {
+  switch(difficulty[0]) {
+    case 'E':
+    case 'e':
+      return Difficulty::EASY;
+    case 'M':
+    case 'm':
+      return Difficulty::MEDIUM;
+    case 'H':
+    case 'h':
+      return Difficulty::HARD;
+    case 'I':
+    case 'i':
+      return Difficulty::I_DONT_KNOW;
+    default:
+      return Difficulty::I_DONT_KNOW;
+  }
 }
