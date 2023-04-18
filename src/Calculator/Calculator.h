@@ -25,6 +25,7 @@ class Calculator {
   Calculator(const Calculator& other);
 
   std::vector<Subject*> GetSubjectsPractise() const;
+  std::vector<long> GetValueOfSubjects() const;
   void SetSubjectsPractise(const std::vector<Subject*>& subjects_practise);
   
   void AddSubjectPractise(const Subject& subject_practise);

@@ -112,8 +112,27 @@ void Menu::OptionInsert() {
 void Menu::OptionShow() const {
   unsigned i = 0;
   std::cout << "The homework to do are: " << std::endl;
+  std::cout << "it - name - value" << std::endl;
   for (auto subject : calculator_.GetSubjectsPractise()) {
-    std::cout << i + 1 << " - " << subject->name_ << std::endl;
+    std::cout << i + 1 << " - " << subject->name_ << " - " << calculator_.GetValueOfSubjects()[i];
+    std::cout << " - " ;
+    switch (subject->difficulty_) {
+      case Difficulty::EASY:
+        std::cout << "Easy";
+        break;
+      case Difficulty::MEDIUM:
+        std::cout << "Medium";
+        break;
+      case Difficulty::HARD:
+        std::cout << "Hard";
+        break;
+      case Difficulty::I_DONT_KNOW:
+        std::cout << "I dont know";
+        break;
+      default:
+        break;
+    }
+    std::cout << std::endl;
     i++;
   }
   std::cout << std::endl;

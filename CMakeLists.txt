@@ -39,9 +39,16 @@ include_directories(${PROJECT_SOURCE_DIR}/src)
 add_executable(WIN
     src/Calculator/Calculator.cc
     src/Menu/Menu.cc
+    src/Calculator/Sort/Methods.cc
+    src/Calculator/Sort/Insertion/Insertion.cc
+
+    src/Calculator/Sort/Methods.h
+    src/Calculator/Sort/Sort.h
+    src/Calculator/Sort/Insertion/Insertion.h
     src/Calculator/Subject/Subject.h
     src/Calculator/Calculator.h
     src/Menu/Menu.h
+    
 
     src/tools.cc
     src/tools.h

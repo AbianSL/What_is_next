@@ -51,6 +51,16 @@ std::vector<Subject*> Calculator::GetSubjectsPractise() const {
 }
 
 /**
+  * @brief Get the Value Of Subjects object
+  * 
+  * @return std::vector<long> 
+  */
+std::vector<long> Calculator::GetValueOfSubjects() const {
+  return value_of_subjects_;
+}
+
+
+/**
   * @brief Set the Subjects Practise object
   * 
   * @param subjects_practise 
@@ -139,5 +149,5 @@ void Calculator::CalculateValueOfSubjects(const unsigned& index) {
   }
   value_of_subjects_[index] = subjects_practise_[index]->difficulty_ * difficulty_factor + 
                               time_value;
-  InsertionSort(value_of_subjects_, value_of_subjects_.size());
+ 
 }
