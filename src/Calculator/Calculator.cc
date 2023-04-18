@@ -139,7 +139,7 @@ void Calculator::CalculateValueOfSubjects(const unsigned& index) {
     value_of_subjects_.resize(index + 1);
   }
   if (actual_date > subjects_practise_[index]->date_) {
-    subjects_practise_[index] = 0;
+    value_of_subjects_[index] = 0;
     return;
   }
   long long time_value = (subjects_practise_[index]->date_ - actual_date).count() 
