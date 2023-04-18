@@ -20,13 +20,14 @@
 #include <string>                        // std::string
 #include <vector>                        // std::vector
 #include <tuple>                         // std::tuple
+#include <sstream>                       // std::stringstream
 
 #include "../Calculator/Calculator.h"    // Calculator
 #include "../Calculator/Subject/Subject.h"          // Subject
 
-struct Options {
-  std::string language_;
-};
+// struct Options {
+//   std::string language_;
+// };
 
 class Menu {
  public:
@@ -35,14 +36,18 @@ class Menu {
   void PrintHeader();
   void PrintMainMenu();
   void OptionInsert();
-  void PrintOptionShow();
-  void ShowOptions();
+  // Select option comming soon
+  // void PrintOptionShow();
+  // void ShowOptions();
   bool IsNotVoid();
-  std::tuple<Calculator, std::vector<Options>> ReadConfig();
+  Calculator ReadMemory();
   int WriteConfig();
 
+  std::chrono::time_point<std::chrono::system_clock> CalculateDate(std::string date);
+  Difficulty CalculateDifficulty(std::string difficulty);
+    
   Calculator calculator_;
-  std::vector<Options> options_;
+  // std::vector<Options> options_;
 };
 
 #endif  // MENU_H_
