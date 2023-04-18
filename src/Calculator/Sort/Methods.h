@@ -12,8 +12,11 @@
 #ifndef METHODS_H_
 #define METHODS_H_
 
-#include <cstdint>    // uint8_t
-#include <vector>     // std::vector
+#include <cstdint>                // uint8_t
+#include <vector>                 // std::vector
+
+#include "Sort.h"                 // SortMethod
+#include "Insertion/Insertion.h"  // Insertion
 
 template <class Key>
 std::vector<Key> InsertionSort (const std::vector<Key>&, unsigned);

@@ -139,4 +139,5 @@ void Calculator::CalculateValueOfSubjects(const unsigned& index) {
   }
   value_of_subjects_[index] = subjects_practise_[index]->difficulty_ * difficulty_factor + 
                               time_value;
+  InsertionSort(value_of_subjects_, value_of_subjects_.size());
 }
