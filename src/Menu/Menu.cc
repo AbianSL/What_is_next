@@ -20,7 +20,7 @@
 Menu::Menu() : calculator_() {
   PrintHeader();
 
-  if (IsNotVoid()) {
+  if (IsNotVoid("../data/memory.txt")) {
     calculator_ = ReadMemory();
   } else {
     // if (WriteConfig()) {
@@ -108,8 +108,8 @@ void Menu::OptionInsert() {
  * @return true 
  * @return false 
  */
-bool Menu::IsNotVoid() {
-  std::ifstream file("config.txt");
+bool Menu::IsNotVoid(const std::string& kFileName) const {
+  std::ifstream file(kFileName);
   return file.peek() != std::ifstream::traits_type::eof();
 }
 
@@ -119,7 +119,7 @@ bool Menu::IsNotVoid() {
  * 
  * @return std::tuple<Calculator, std::vector<Options>> 
  */
-Calculator Menu::ReadMemory() {
+Calculator Menu::ReadMemory() const {
   std::ifstream file("../data/memory.txt");
   std::string line;
   std::vector<Subject> subjects;
@@ -130,8 +130,8 @@ Calculator Menu::ReadMemory() {
     std::getline(input, name, delimiter);
     std::getline(input, date, delimiter);
     std::getline(input, difficulty, delimiter);
-    auto time_point = CalculateDate(date);
-    auto difficulty_selected = CalculateDifficulty(difficulty);
+    auto time_point = std::chrono::system_clock::time_point(std::chrono::milliseconds(std::stol(date)));
+    auto difficulty_selected = Difficulty(std::stoi(difficulty));
     subjects.push_back(Subject(name, time_point, difficulty_selected));    
   }
   return Calculator(subjects);

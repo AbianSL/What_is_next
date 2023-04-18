@@ -39,8 +39,8 @@ class Menu {
   // Select option comming soon
   // void PrintOptionShow();
   // void ShowOptions();
-  bool IsNotVoid();
-  Calculator ReadMemory();
+  bool IsNotVoid(const std::string& kFileName) const;
+  Calculator ReadMemory() const;
   bool WriteMemory();
   // int WriteConfig();
 
