@@ -36,9 +36,9 @@ Menu::Menu() : calculator_(), options_() {
       case 2:
         OptionInsert();
         break;
-      case 3:
-        PrintOptionShow();
-        break;
+      // case 3:
+      //   PrintOptionShow();
+      //   break;
       default:
         break;
     }
@@ -122,23 +122,6 @@ Calculator Menu::ReadMemory() {
     subjects.push_back(Subject(name, time_point, difficulty_selected));    
   }
   return Calculator(subjects);
-}
-
-/**
- * @brief Write the config file
- * 
- * @return true 
- * @return false 
- */
-bool Menu::WriteConfig() {
-  std::ofstream file("config.txt");
-  if (file.is_open()) {
-    for (auto subject : calculator_.GetSubjects()) {
-      file << subject.name_ << "," << subject.date_ << "," << subject.difficulty_ << "," << options_[0].language_ << std::endl;
-    }
-    return false;
-  }
-  return true;
 }
 
 /**

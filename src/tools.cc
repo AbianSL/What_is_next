@@ -12,6 +12,7 @@
 #include <iostream>
 
 #include "tools.h"
+#include "Menu/Menu.h"
 
 /**
  * @brief This function prints the usage of the program
@@ -26,4 +27,12 @@ int Usage(int argc, char const *argv[]) {
     return 1;
   }
   return 0;
+}
+
+/**
+ * @brief This function prints the menu of the program
+ * 
+ */
+void Menu() {
+  Menu main_menu(); 
 }

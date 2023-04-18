@@ -25,12 +25,11 @@ enum Difficulty {
 
 struct Subject {
   std::string name_;
-  std::string description_;
   std::chrono::time_point<std::chrono::system_clock> date_;
   Difficulty difficulty_;
 
-  Subject(std::string name, std::string description, std::chrono::time_point<std::chrono::system_clock> date, Difficulty difficulty)
-      : name_(name), description_(description), date_(date), difficulty_(difficulty) {}
+  Subject(std::string name, std::chrono::time_point<std::chrono::system_clock> date, Difficulty difficulty)
+      : name_(name), date_(date), difficulty_(difficulty) {} 
 };
 
 #endif      // SUBJECT_H

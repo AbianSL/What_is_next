@@ -13,5 +13,6 @@
 #define TOOLS_H
 
 int Usage(int argc, char const *argv[]);
+void Menu();
 
 #endif        // TOOLS_H

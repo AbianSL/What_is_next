@@ -41,7 +41,7 @@ class Menu {
   // void ShowOptions();
   bool IsNotVoid();
   Calculator ReadMemory();
-  int WriteConfig();
+  // int WriteConfig();
 
   std::chrono::time_point<std::chrono::system_clock> CalculateDate(std::string date);
   Difficulty CalculateDifficulty(std::string difficulty);
