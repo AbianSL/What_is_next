@@ -27,7 +27,7 @@ Menu::Menu() : calculator_() {
     //   throw std::runtime_error("Error writing the config file");
     // }
   }
-  uint8_t option_ = 1;
+  int option_ = 1;
   while (option_ != 0) {
     switch (option_) {
       case 1:
@@ -43,6 +43,7 @@ Menu::Menu() : calculator_() {
         break;
     }
     std::cin >> option_;
+    option_++;
   }
 }
 
