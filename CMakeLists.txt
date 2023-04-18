@@ -38,9 +38,11 @@ include_directories(${PROJECT_SOURCE_DIR}/src)
 # Adds an executable target called "main" to be built from the source files listed in the command invocation.
 add_executable(WIN
     src/Calculator/Calculator.cc
+    src/Menu/Menu.cc
     src/Calculator/Subject/Subject.h
     src/Calculator/Calculator.h
-   
+    src/Menu/Menu.h
+
     src/tools.cc
     src/tools.h
 
