@@ -138,6 +138,23 @@ Calculator Menu::ReadMemory() {
 }
 
 /**
+ * @brief Write the config file
+ * 
+ * @return true 
+ * @return false 
+ */
+bool Menu::WriteMemory() {
+  std::ofstream file("../data/memory.txt");
+  if (!file.is_open()) {
+    return false;
+  }
+  for (auto subject : calculator_.GetSubjectsPractise()) {
+    file << subject->name_ << "," << subject->date_.time_since_epoch().count() << "," << subject->difficulty_ << std::endl;
+  }
+  return true;
+}
+
+/**
  * @brief Calculate the time point
  * 
  * @param date_to_do 
