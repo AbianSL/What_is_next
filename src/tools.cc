@@ -33,6 +33,6 @@ int Usage(int argc, char const *argv[]) {
  * @brief This function prints the menu of the program
  * 
  */
-void Menu() {
-  Menu main_menu(); 
+void MenuMethod() {
+  Menu menu;
 }

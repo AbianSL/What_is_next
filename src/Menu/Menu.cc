@@ -17,15 +17,15 @@
  * @brief Construct a new Menu:: Menu object
  * 
  */
-Menu::Menu() : calculator_(), options_() {
+Menu::Menu() : calculator_() {
   PrintHeader();
 
   if (IsNotVoid()) {
-    std::tie(calculator_, options_) = ReadConfig();
+    calculator_ = ReadMemory();
   } else {
-    if (WriteConfig()) {
-      throw std::runtime_error("Error writing the config file");
-    }
+    // if (WriteConfig()) {
+    //   throw std::runtime_error("Error writing the config file");
+    // }
   }
   uint8_t option_ = 1;
   while (option_ != 0) {
@@ -141,6 +141,7 @@ std::chrono::time_point<std::chrono::system_clock> Menu::CalculateDate(std::stri
   tm.tm_mday = day;
   std::chrono::time_point<std::chrono::system_clock> time_point =
       std::chrono::system_clock::from_time_t(std::mktime(&tm));
+  return time_point;
 }
 
 /**

@@ -15,6 +15,7 @@
 
 int main(int argc, char const *argv[]) {
   Usage(argc, argv); 
+  MenuMethod();
   return 0;
 }
 
