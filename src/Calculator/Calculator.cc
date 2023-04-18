@@ -140,6 +140,7 @@ void Calculator::CalculateValueOfSubjects(const unsigned& index) {
   }
   if (actual_date > subjects_practise_[index]->date_) {
     subjects_practise_[index] = 0;
+    return;
   }
   long long time_value = (subjects_practise_[index]->date_ - actual_date).count() 
                           / 10000000000000 * date_factor;
