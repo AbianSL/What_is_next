@@ -117,7 +117,6 @@ void Calculator::CalculateValueOfSubjects() {
   }
 }
 
-#include <iostream>
 
 /**
   * @brief Calculate the value of a subject
@@ -126,7 +125,6 @@ void Calculator::CalculateValueOfSubjects() {
   */
 void Calculator::CalculateValueOfSubjects(const unsigned& index) {
   auto actual_date = std::chrono::system_clock::now();
-  std::cout << subjects_practise_[index]->date_.time_since_epoch().count() << std::endl;
   if (value_of_subjects_.size() < index + 1) {
     value_of_subjects_.resize(index + 1);
   }

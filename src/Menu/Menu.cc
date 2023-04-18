@@ -29,12 +29,17 @@ Menu::Menu() : calculator_() {
   }
   int option_ = 1;
   while (option_ != 0) {
-    switch (option_) {
+    PrintMainMenu();
+    std::cin >> option_;
+    switch (option_) { 
       case 1:
-        PrintMainMenu();
+        OptionInsert();
         break;
       case 2:
-        OptionInsert();
+        
+        break;
+      case 3:
+        WriteMemory();
         break;
       // case 3:
       //   PrintOptionShow();
@@ -42,9 +47,15 @@ Menu::Menu() : calculator_() {
       default:
         break;
     }
-    std::cin >> option_;
-    option_++;
-  }
+    if (option_ == 0) {
+      std::cout << "Are you sure you want to exit without saving? [Y/N]: ";
+      std::string answer;
+      std::cin >> answer;
+      if (answer == "N" || answer == "n" || answer == "No" || answer == "no") { 
+        option_ = 1;
+      }
+    }
+  } 
 }
 
 /**
@@ -65,7 +76,7 @@ void Menu::PrintMainMenu() {
   std::cout << "What do you want to do?" << std::endl;
   std::cout << "1. Insert a new homework" << std::endl;
   std::cout << "2. Show the homework" << std::endl;
-  std::cout << "3. Options" << std::endl;
+  std::cout << "3. Save" << std::endl;
   std::cout << "0. Exit" << std::endl;
 }
 
