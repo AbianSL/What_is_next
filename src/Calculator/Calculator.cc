@@ -131,6 +131,12 @@ void Calculator::CalculateValueOfSubjects(const unsigned& index) {
   if (actual_date > subjects_practise_[index]->date_) {
     subjects_practise_[index] = 0;
   }
+  long long time_value = (subjects_practise_[index]->date_ - actual_date).count() 
+                          / 10000000000000 * date_factor;
+  time_value = 100 - time_value;
+  if (time_value < 0) {
+    time_value = std::abs(time_value);
+  }
   value_of_subjects_[index] = subjects_practise_[index]->difficulty_ * difficulty_factor + 
-                              ((subjects_practise_[index]->date_ - actual_date).count() * date_factor);
+                              time_value;
 }

@@ -30,20 +30,25 @@ Menu::Menu() : calculator_() {
   int option_ = 1;
   while (option_ != 0) {
     PrintMainMenu();
+    std::cout << "Option: ";
     std::cin >> option_;
+    std::cout << std::endl;
     switch (option_) { 
       case 1:
         OptionInsert();
         break;
       case 2:
-        
+        OptionShow();
         break;
       case 3:
         WriteMemory();
         break;
-      // case 3:
-      //   PrintOptionShow();
-      //   break;
+      case 4:
+        std::cout << "Comming soon" << std::endl;
+        break;
+      case 5:
+        system("clear");
+        break;
       default:
         break;
     }
@@ -77,6 +82,8 @@ void Menu::PrintMainMenu() const {
   std::cout << "1. Insert a new homework" << std::endl;
   std::cout << "2. Show the homework" << std::endl;
   std::cout << "3. Save" << std::endl;
+  std::cout << "4. Clean the memory" << std::endl;
+  std::cout << "5. Clear the screen" << std::endl;
   std::cout << "0. Exit" << std::endl;
 }
 
@@ -104,10 +111,12 @@ void Menu::OptionInsert() {
 
 void Menu::OptionShow() const {
   unsigned i = 0;
+  std::cout << "The homework to do are: " << std::endl;
   for (auto subject : calculator_.GetSubjectsPractise()) {
-    std::cout << i << " - " << subject->name_ << std::endl;
+    std::cout << i + 1 << " - " << subject->name_ << std::endl;
     i++;
   }
+  std::cout << std::endl;
 }
 
 /**
