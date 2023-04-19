@@ -41,3 +41,6 @@ out/
 # Gradle files
 .gradle/
 build/
+
+data/
+*.txt
