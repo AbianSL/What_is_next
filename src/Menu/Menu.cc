@@ -206,6 +206,7 @@ std::chrono::time_point<std::chrono::system_clock> Menu::CalculateDate(std::stri
   tm.tm_year = year + 100;  // ajuste el año para que sea relativo a 1900
   tm.tm_mon = month - 1;    // ajuste el mes para que sea de 0 a 11
   tm.tm_mday = day;
+  tm.tm_hour = 24;
   std::chrono::time_point<std::chrono::system_clock> time_point =
       std::chrono::system_clock::from_time_t(std::mktime(&tm));
   return time_point;

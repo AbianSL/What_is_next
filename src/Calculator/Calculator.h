@@ -38,7 +38,7 @@ class Calculator {
   void CalculateValueOfSubjects();
   void CalculateValueOfSubjects(const unsigned& index);
 
-  double difficulty_factor = 1;
+  double difficulty_factor = 5;
   double date_factor = 1;
   std::vector<Subject*> subjects_practise_;
   std::vector<long> value_of_subjects_;
