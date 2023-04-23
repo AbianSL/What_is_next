@@ -37,6 +37,8 @@ class Menu {
   void PrintMainMenu() const;
 
   void OptionInsert();
+  void OptionRemove(const unsigned position);
+  void OptionRemove(const std::string& name);
   void OptionShow() const;
   // Select option comming soon
   // void PrintOptionShow();

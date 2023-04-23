@@ -49,6 +49,14 @@ Menu::Menu() : calculator_() {
       case 5:
         system("clear");
         break;
+      case 6: {
+        unsigned position;
+        std::cout << "Select the position of the homework to remove [1 - " 
+                  << calculator_.GetSubjectsPractise().size() << "]: ";
+        std::cin >> position;
+        OptionRemove(position - 1);
+        break;
+      }
       default:
         break;
     }
@@ -84,6 +92,7 @@ void Menu::PrintMainMenu() const {
   std::cout << "3. Save" << std::endl;
   std::cout << "4. Clean the memory" << std::endl;
   std::cout << "5. Clear the screen" << std::endl;
+  std::cout << "6. Remove a homework" << std::endl;
   std::cout << "0. Exit" << std::endl;
 }
 
@@ -235,4 +244,13 @@ Difficulty Menu::CalculateDifficulty(std::string difficulty) const {
     default:
       return Difficulty::I_DONT_KNOW;
   }
+}
+
+/**
+  * @brief remove a task from the list
+  *
+  * @param index
+  */
+void Menu::OptionRemove(const unsigned index) {
+  calculator_.RemoveSubjectPractise(index);
 }
