@@ -14,16 +14,17 @@
 #ifndef MENU_H_
 #define MENU_H_
 
-#include <iostream>                      // std::cout, std::endl
-#include <cstdint>                       // uint8_t
-#include <fstream>                       // std::ifstream, std::ofstream
-#include <string>                        // std::string
-#include <vector>                        // std::vector
-#include <tuple>                         // std::tuple
-#include <sstream>                       // std::stringstream
+#include <iostream>                            // std::cout, std::endl
+#include <cstdint>                             // uint8_t
+#include <fstream>                             // std::ifstream, std::ofstream
+#include <string>                              // std::string
+#include <vector>                              // std::vector
+#include <tuple>                               // std::tuple
+#include <sstream>                             // std::stringstream
 
-#include "../Calculator/Calculator.h"    // Calculator
-#include "../Calculator/Subject/Subject.h"          // Subject
+#include "../Calculator/Calculator.h"          // Calculator
+#include "../Calculator/Subject/Subject.h"     // Subject
+#include "Menu_tools.h"                        // PrintTimes 
 
 class Menu {
  public:

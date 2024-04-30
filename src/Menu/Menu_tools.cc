@@ -28,3 +28,16 @@ std::string PrintTimes(int times, char character) {
   }
   return result;
 }
+
+/**
+ * @brief This function converts a string to lowercase
+ * 
+ * @param str is the string to be converted
+ * @return std::string the string converted to lowercase
+ */
+std::string ToLower(std::string str) {
+  for (int i = 0; i < str.size(); i++) {
+    str[i] = tolower(str[i]);
+  }
+  return str;
+}

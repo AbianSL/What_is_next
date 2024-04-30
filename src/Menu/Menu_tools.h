@@ -17,6 +17,6 @@
 #include <string>
 
 std::string PrintTimes(int times, char character); 
-
+std::string ToLower(std::string str);
 
 #endif        // MENU_TOOLS_H
