@@ -25,13 +25,10 @@
 #include "../Calculator/Calculator.h"    // Calculator
 #include "../Calculator/Subject/Subject.h"          // Subject
 
-// struct Options {
-//   std::string language_;
-// };
-
 class Menu {
  public:
   Menu();  
+ 
  private:
   void PrintHeader() const;
   void PrintMainMenu() const;
@@ -40,9 +37,11 @@ class Menu {
   void OptionRemove(const unsigned position);
   void OptionRemove(const std::string& name);
   void OptionShow() const;
-  // Select option comming soon
+
+  // TODO: Select option
   // void PrintOptionShow();
   // void ShowOptions();
+
   bool IsNotVoid(const std::string& kFileName) const;
   Calculator ReadMemory() const;
   bool WriteMemory();
