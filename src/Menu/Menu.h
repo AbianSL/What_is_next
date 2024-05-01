@@ -28,11 +28,11 @@
 
 class Menu {
  public:
-  Menu();  
- 
- private:
+  Menu();
   void PrintHeader() const;
   void PrintMainMenu() const;
+ 
+ private:
 
   void OptionInsert();
   void OptionRemove(const unsigned position);
